@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Authentication Manager Configuration for Fast Connect Use Cases for Citrix Receiver for Linux 13.10">  
+    <title>Authentication Manager Configuration for Fast Connect Use Cases for Citrix Receiver for Linux 13.10</title>
+     
+    <link rel="shortcut icon" href="
+https://www.citrix.com/etc/designs/citrix/icon-favicon.png"> 
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+    <link rel="stylesheet" href="./css/highlight.css">
+    <link rel="stylesheet" href="./css/override.css" type="text/css" />
+    <link rel="stylesheet" href="./css/font-awesome.css" type="text/css" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "None";
+      var mkdocs_page_input_path = "index.md";
+      var mkdocs_page_url = "/";
+
+    </script>
+    
+    <script src="./js/jquery-2.1.1.min.js"></script>
+    <script src="./js/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/highlight.pack.js"></script>
+    <script src="./js/theme.js"></script>
+    <script src="./js/custom.js"></script>  
+  </head>
+
+  <body class="wy-body-for-nav" role="document">
+
+    <div class="header-top">
+
+        <div class="header-top-left">
+          <a href="http://developer-docs.citrix.com" class="logo-position"><img height="60" src="./img/citrixlogoblack.png" target="_blank" class="logo-citrix"><span style="color:#000;font-size: 20px;position: relative;top:4px;left:20px;">Developer Documentation</span></a>
+        </div>
+        <div class="header-top-right">
+          <ul>
+
+            <form id="rtd-search-form-alt" class="wy-form" action="./search.html" method="get">
+             <ul class="header-elements">
+              <li class="list-inline support">
+                <input name="q" id="txtName" type="text" placeholder="Search SDKs" class="searchdocs">
+                <a class="fa fa-search errspan"></a>
+<!---
+              </li>
+             <li> <a href="javascript:void(0);" style="font-size: 22px;position: relative;left: -10px;top: 3px"><i class="fa fa-globe"></i></a></li>
+             </ul>
+             --->
+            </form>
+
+          </ul>
+
+        </div>
+
+    </div>
+    <div class="body">
+      <div class="wy-grid-for-nav">
+
+        
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+          <div class="wy-side-nav-search">
+            <div role="search">
+  <form id ="rtd-search-form-alt" class="wy-form" action="./search.html" method="get">
+	<i class="fa fa-search"></i>
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+          </div>
+
+          <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <ul class="current">
+              
+              
+    <li class="toctree-l1 current">
+        <a class="toctree-l1-a current" href=".">Home</a>
+		
+            <ul style="margin-left: 0px;padding-left:15px;border-left: 1px solid #b2b2b2;">
+            
+                <li class="toctree-l3"><a href="#authentication-manager-configuration-for-fast-connect-use-cases-citrix-receiver-for-linux-1310" style="padding:0px;position: relative;">&nbsp;Authentication Manager Configuration for Fast Connect Use Cases [Citrix Receiver for Linux 13.10]</a></li>
+                
+                    <li><a class="toctree-l4" href="#component-overview" style="padding:0px;position: relative;">Component overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#fast-connect-authentication-types" style="padding:0px;position: relative;">Fast Connect authentication types</a></li>
+                
+                    <li><a class="toctree-l4" href="#username-domain-and-password-http-basic" style="padding:0px;position: relative;">Username, domain and password – HTTP Basic</a></li>
+                
+                    <li><a class="toctree-l4" href="#smart-card-client-certificate" style="padding:0px;position: relative;">Smart card – Client certificate</a></li>
+                
+                    <li><a class="toctree-l4" href="#username-domain-and-password-pna-protocol" style="padding:0px;position: relative;">Username, domain and password – PNA Protocol</a></li>
+                
+                    <li><a class="toctree-l4" href="#authentication-manager-configuration-file-path" style="padding:0px;position: relative;">Authentication Manager configuration file path</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuring-the-authentication-protocols" style="padding:0px;position: relative;">Configuring the authentication protocols</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuring-httpbasic-authentication" style="padding:0px;position: relative;">Configuring HTTPBasic authentication</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuring-smart-card-authentication" style="padding:0px;position: relative;">Configuring smart card authentication</a></li>
+                
+                    <li><a class="toctree-l4" href="#appendix" style="padding:0px;position: relative;">Appendix</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+			  
+            </ul>
+          </div>
+          &nbsp;
+        </nav>
+
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+           
+          <div class="wy-nav-content">
+            <div class="rst-content">
+              <!-- <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div> -->
+              <div role="main">
+                <div class="section">
+                <div class="file-format">
+                 <div class="leftAlign" style="float: left;visibility: hidden;">
+                  </div>
+                  <div class="rightAlign" style="float: right;">
+                      <span>Download full document:</span>
+                      <ul class="file-types">
+                        <li><a style="border: 1px solid #EE3D24;padding: 5px;font-size: 11px;color: #EE3D24;border-radius: 5px;font-weight: 700">PDF</a></li>
+                        <li><a style="border: 1px solid #2A579A;padding: 5px;font-size: 11px;color: #2A579A;border-radius: 5px;font-weight: 700">DOCX</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">EMAIL</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">PRINT</a></li>
+                      </ul>
+                  </div>
+                  </div>
+                   <h1 id="authentication-manager-configuration-for-fast-connect-use-cases-citrix-receiver-for-linux-1310"><a class="toclink" href="#authentication-manager-configuration-for-fast-connect-use-cases-citrix-receiver-for-linux-1310">Authentication Manager Configuration for Fast Connect Use Cases [Citrix Receiver for Linux 13.10]</a></h1>
+<p>This document describes the configuration required for the Authentication Manager (AM) component of Citrix Receiver for Linux to support Fast Connect (FC) use cases.</p>
+<p>The FC use cases use APIs for Citrix Receiver for Linux in a scripted fashion to change the current user by modifying the credential in the SSO component (within AM). 
+AM authenticates on behalf of the Self-Service Plug-in (SSP) using Single Sign-on (SSO) protocols, where the user credentials are provided through the SSO component.</p>
+<p>Normally AM assumes a single unchanging user tied to the client desktop session, but this is not true for the FC use cases as there are multiple users. To allow the FC use cases to function correctly, some specific AM functionalities need to be enabled and other behaviours that conflict with FC need to be disabled.</p>
+<p>Configuration for AM is done with AM’s configuration file. The appendix contains a quick configuration settings list giving entry keys for configuring the normal FC use cases.</p>
+<h2 id="component-overview"><a class="toclink" href="#component-overview">Component overview</a></h2>
+<p>The SSO component of Citrix Receiver for Linux acts as a secure cache for credentials used for Single Sign-on. The FC API (libCredInject.so) stores either a username and password or a smart card PIN credential in SSO when a user is changed.</p>
+<p>The Self-Service Plugin (SSP) performs tasks with StoreFront or a Web Interface/PNA server such as enumerating a user’s applications and requesting ICA files for a launch.</p>
+<p>Authentication Manager is used by SSP to automatically authenticate requests to StoreFront or the Web Interface. AM uses the credentials securely stored in SSO to authenticate with StoreFront or the Web Interface.</p>
+<p>NetScaler Gateway is not currently supported for Fast Connect use cases.</p>
+<p><img alt="Component overview" src="./component-overview.png" /></p>
+<h2 id="fast-connect-authentication-types"><a class="toclink" href="#fast-connect-authentication-types">Fast Connect authentication types</a></h2>
+<p>Fast Connect use cases may vary because they are defined by partners using Citrix APIs. As far as the AM component’s functionality is concerned, it falls into three categories based on the type of authentication protocol being used. The credential types used and the protocols are:</p>
+<ul>
+<li>Username, domain and password with the HTTP Basic protocol</li>
+<li>PIN and smart card with the client certificate protocol</li>
+<li>Username, domain and password with the PNA protocol</li>
+</ul>
+<p>If StoreFront is being used, it needs to be configured through the StoreFront console to offer the relevant protocols to the client. Enable the required protocol from the StoreFront console:</p>
+<p><img alt="Manage Authentication Methods" src="./manage-auth-modes.png" /></p>
+<p>Note that other protocols can also be enabled in StoreFront without any negative effect. On the client AM is configured to use only the authentication methods required for the FC use case.</p>
+<h2 id="username-domain-and-password-http-basic"><a class="toclink" href="#username-domain-and-password-http-basic">Username, domain and password – HTTP Basic</a></h2>
+<p>When AM needs to authenticate and it detects that there is a username-password credential present in SSO, it uses the HTTP Basic authentication protocol to authenticate to StoreFront. This protocol is described in RFC 2617.</p>
+<p>The HTTP Basic protocol is a good fit for FC use because it allows SSO from the saved credentials and does not show an authentication user interface. The HTTP Basic protocol does not support capabilities such as password expiry warnings or password changes.</p>
+<p>Note that the “HTTP” part of the name “HTTP Basic” does not imply HTTP URLs are used. The HTTP Basic protocol sends the password in plain text. As a result, AM will refuse to use this protocol with anything other than an encrypted HTTPS connection.</p>
+<h2 id="smart-card-client-certificate"><a class="toclink" href="#smart-card-client-certificate">Smart card – Client certificate</a></h2>
+<p>When AM needs to authenticate and detects that there is a smart card PIN credential present in SSO, it uses client certificate authentication with an HTTPS connection to authenticate to StoreFront.</p>
+<h2 id="username-domain-and-password-pna-protocol"><a class="toclink" href="#username-domain-and-password-pna-protocol">Username, domain and password – PNA Protocol</a></h2>
+<p>If your clients use a Web Interface site or the StoreFront legacy PNA service, AM uses the PNA protocol to make resource requests. AM will do SSO for the PNA Protocol using the username, domain and password from SSO.</p>
+<h2 id="authentication-manager-configuration-file-path"><a class="toclink" href="#authentication-manager-configuration-file-path">Authentication Manager configuration file path</a></h2>
+<p>The AM configuration file is found at:</p>
+<p><code>$ICAROOT/config/AuthManConfig.xml</code></p>
+<p>where the value of ICAROOT depends on the deployment.</p>
+<p>The default path is:</p>
+<p><code>/opt/Citrix/ICAClient/config/AuthManConfig.xml</code></p>
+<p>The configuration file is a plain XML file that you can edit with any text editor.</p>
+<h2 id="configuring-the-authentication-protocols"><a class="toclink" href="#configuring-the-authentication-protocols">Configuring the authentication protocols</a></h2>
+<p>Most FC deployments are expected to use one SSO authentication protocol. By default, AM has a number of authentication protocols enabled. These non-SSO protocols can conflict with FC use cases and should be disabled to prevent unwanted authentication behaviour. For example, integrated Windows authentication to StoreFront always authenticates to StoreFront with the authenticated user of the current session and not the desired FC user.</p>
+<p>The ProtocolOrder is a multi-string key value that controls the order in which the StoreFront protocols attempt to authenticate to StoreFront. Protocols not listed in this key are implicitly disabled and not used to log onto StoreFront. AM attempts to use the protocols in the order they are listed in the key value. Note that these protocol name values match the protocol names that StoreFront offers the client to authenticate with. There is no PNA SSO protocol as such because it is a legacy protocol.</p>
+<p>Multiple string values must be entered in the configuration file as a list of comma-separated strings with no extra spaces.</p>
+<p>The ProtocolOrder is not present in the configuration file by default but it has a default value as follows:</p>
+<ul>
+<li><strong>HttpBasic</strong></li>
+<li>IntegratedWindows</li>
+<li>CitrixAGBasic</li>
+<li>CitrixAGBasicNoPassword</li>
+<li><strong>Certificate</strong></li>
+<li>CustomForms</li>
+<li>FormsVariant</li>
+<li>ExplicitForms</li>
+</ul>
+<p>The values are case insensitive. Only the bold protocol names are needed for FC.
+Set the string values to contain the protocols the client is supposed to use. 
+For username and password credentials, set it to:</p>
+<ul>
+<li><strong>HttpBasic</strong></li>
+</ul>
+<p>For smart card use cases, set it to:</p>
+<ul>
+<li><strong>Certificate</strong></li>
+</ul>
+<p>If your client supports both types of credentials:</p>
+<ul>
+<li><strong>HttpBasic</strong></li>
+<li><strong>Certificate</strong></li>
+</ul>
+<p>If the client uses only the PNA protocol, all StoreFront protocols should be disabled. Set the ProtocolOrder value to:</p>
+<ul>
+<li><strong>None</strong></li>
+</ul>
+<h2 id="configuring-httpbasic-authentication"><a class="toclink" href="#configuring-httpbasic-authentication">Configuring HTTPBasic authentication</a></h2>
+<p>The HTTPBasic protocol performs a username, domain and password logon to StoreFront with the credentials stored in SSO.</p>
+<p>By default, the HTTPBasic protocol is explicitly disabled even if it is specified in the ProtocolOrder key value. To enable it, set the following key value to true under the Protocols node:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;Protocols&gt;</span>
+    <span class="nt">&lt;HTTPBasic&gt;</span>
+        <span class="nt">&lt;Enabled&gt;</span>True<span class="nt">&lt;/Enabled&gt;</span>
+    <span class="nt">&lt;/HTTPBasic&gt;</span>
+<span class="nt">&lt;/Protocols&gt;</span>
+</pre></div>
+
+
+<p>The default configuration file contains an example specific for this case, uncomment it to enable HTTPBasic.</p>
+<h2 id="configuring-smart-card-authentication"><a class="toclink" href="#configuring-smart-card-authentication">Configuring smart card authentication</a></h2>
+<p>This section covers only the configuration affecting FC. It does not cover configuring your domain’s and the client’s public key infrastructure for smart cards, which should be configured before you attempt to set up FC.</p>
+<p>The StoreFront certificate protocol supports client certificate authentication through IIS using HTTPS. Currently, AM, as a client, supports only smart card certificates from smart card devices but not soft certificates.</p>
+<h3 id="multiple-smart-cards-and-card-readers"><a class="toclink" href="#multiple-smart-cards-and-card-readers">Multiple smart cards and card readers</a></h3>
+<p>The general client deployment with smart card authentication is for a client to have one smart card reader with one smart card in. The SSO component stores only a smartcard PIN. The PIN is not bound to a specific smart card or card reader. By default, AM does not use a PIN when it detects multiple cards or readers. This is to prevent situations where the cached PIN is used with an inappropriate card and the card becomes locked.</p>
+<p>By default, AM uses only a PIN credential from SSO to unlock a smart card certificate if there is one smart card reader and one smart card available on the system. It is possible for customer configurations to involve additional used or unused card readers or multiple smart cards with the same PIN. For example, some smart card middleware solutions create unused virtual smart card reader devices; administrator card enrolment stations can also have multiple cards and readers present.</p>
+<p>To add greater flexibility and allow the PIN to be used when there are additional readers or cards the <code>SSOnReadPinMode</code> string configuration key can be used to control when AM automatically uses the PIN. Using the SSO PIN functionality with multiple cards and readers is not recommended unless you can ascertain that only the correct card for the cached PIN is connected.</p>
+<p>The values to be set are:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Never</strong></td>
+<td>The PIN cached in SSO is never automatically used by AM.</td>
+</tr>
+<tr>
+<td><strong>OneCardOneReader</strong></td>
+<td>The PIN is used if one reader and one card is detected. (Default value)</td>
+</tr>
+<tr>
+<td><strong>OneCard</strong></td>
+<td>The PIN is used if one card and one or more readers are detected.</td>
+</tr>
+<tr>
+<td><strong>Always</strong></td>
+<td>The PIN is used if there are one or more cards and one or more readers.</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;key&gt;</span>SSOnReadPinMode<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;value&gt;</span>OneCard<span class="nt">&lt;/value&gt;</span>
+</pre></div>
+
+
+<p>sets the value of key <code>SSOnReadPinMode</code> to <code>OneCard</code>.</p>
+<h3 id="disabling-pin-capture-and-caching-by-authentication-manager"><a class="toclink" href="#disabling-pin-capture-and-caching-by-authentication-manager">Disabling PIN capture and caching by Authentication Manager</a></h3>
+<p>AM can capture a smart card PIN and store it in the SSO credential container if there is no credential present in it already. This behaviour is enabled by default and is intended for the non-FC use case where AM captures the PIN rather than receiving it through the FC API. To disable AM’s PIN caching functionality, set the <code>WriteSSOnPINEnabled</code> configuration key value to <code>false</code>:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;key&gt;</span>WriteSSOnPINEnabled<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;value&gt;</span>false<span class="nt">&lt;/value&gt;</span>
+</pre></div>
+
+
+<h2 id="appendix"><a class="toclink" href="#appendix">Appendix</a></h2>
+<h3 id="quick-configuration-settings"><a class="toclink" href="#quick-configuration-settings">Quick configuration settings</a></h3>
+<p>The following configuration values should be sufficient to enable Fast Connect to work in most typical use cases.</p>
+<h4 id="username-domain-password-configuration"><a class="toclink" href="#username-domain-password-configuration">Username, domain, password configuration</a></h4>
+<p><code>/opt/Citrix/ICAClient/config/AuthManConfig.xml</code></p>
+<table>
+<thead>
+<tr>
+<th>Key name</th>
+<th>Key value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ProtocolOrder</td>
+<td>HTTPBasic [multi-string value]</td>
+</tr>
+<tr>
+<td>Protocols\HTTPBasic\Enabled</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<h4 id="smart-card-configuration"><a class="toclink" href="#smart-card-configuration">Smart card configuration</a></h4>
+<table>
+<thead>
+<tr>
+<th>Key name</th>
+<th>Key value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ProtocolOrder</td>
+<td>Certificate [multi-string value]</td>
+</tr>
+</tbody>
+</table> 
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+    <!--<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+	<div class="footer-right">
+		<ul class="social-links">
+			<li class="list-inline"><a href="https://twitter.com/citrix"><i class="fa fa-twitter"></i>@citrix</a></li>
+			<li class="list-inline"><a href="mailto:support@citrix.com"><i class="fa fa-envelope-o"></i>support@citrix.com</a></li>
+		</ul>
+		<ul class="inner-pages">
+			<li class="list-inline"><a href="http://citrix.com/about/legal">Privacy and Terms</li>
+		</ul>
+	</div>
+</div>-->
+    <footer class="site-footer">
+      <div class="wrapper">
+          <p align="right">© 1999-2018 Citrix Systems, Inc. All rights reserved. | <a href="http://www.citrix.com/about/legal/legal-notice.html">Terms of Use | <a href="#" onclick="event.preventDefault(); window.evidon.notice.showConsentTool();">Cookie Preferences</a></a></p>
+      </div>
+  </footer>
+  <script type="text/javascript">
+      (function (id) {
+          function append(scriptid, url, async) {
+              var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+              if (!f) f = d.head;
+              var s = d.createElement(sn);
+              s.async = true;
+              s.id = scriptid;
+              s.src = url;
+              f.parentNode.insertBefore(s, f);
+          }
+  
+          function getRootDomain() {
+              var parts = window.location.hostname.split('.');
+              if (parts.length === 2) rootDomain = parts[0];
+              else if (parts.length > 2) {
+                // see if the next to last value is a common tld
+                var part = parts[parts.length - 2];
+                if (part === 'com' || part === 'co') {
+                  rootDomain = parts[parts.length - 3]; // go back one more
+                }
+                else {
+                  rootDomain = part;
+                }
+              }
+  
+            return rootDomain;
+          }
+  
+          window.evidon = {};
+          window.evidon.id = id;
+          var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
+          append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
+          append('evidon-location', cdn + 'geo/country.js', true);
+          append('evidon-themes', noticecdn + id + '/snthemes.js', true);
+          if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + '/settings.js', true);
+  
+          window.evidon.priorConsentCallback = function () {
+              // add the tags which need to wait for prior consent
+              // here.  This should be all your advertising tags and
+              // probably most of your social and tracking tags.
+          }
+      })(3010);
+  </script>
+  </body>
+
+</html>
+
+<!--
+MkDocs version : 0.16.1
+Build Date UTC : 2018-06-21 17:14:47
+-->
