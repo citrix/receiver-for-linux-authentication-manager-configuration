@@ -1,6 +1,7 @@
 site_name: Authentication Manager Configuration for Fast Connect Use Cases for Citrix Receiver for Linux 13.10
 site_description: Authentication Manager Configuration for Fast Connect Use Cases for Citrix Receiver for Linux 13.10
 site_title: Developer Docs
+site_url: https://developer-docs.citrix.com
 
 # Copyright
 copyright: 'Copyright &copy; 1999-2019 Citrix Systems, Inc. All rights reserved. '
@@ -57,3 +58,4 @@ markdown_extensions:
 nav:
 
 - Home: index.md
+- Questions?: https://discussions.citrix.com/forum/1385-citrix-developer-exchange/
